@@ -22,7 +22,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { signIn } from "next-auth/react"
+// import { signIn } from "next-auth/react"
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -56,20 +56,20 @@ export function UserAuthLoginForm({ className, ...props }: UserAuthFormProps) {
   });
 
   const handleGoogleLogin = async () => {
-    signIn('google')
+    // signIn('google')
   }
 
   async function onSubmit(data: LoginFormValues) {
     try {
       setIsLoading(true);
       
-      signIn('credentials',{
-        ...data,
-        redirect: false,
-      })
+      // signIn('credentials',{
+      //   ...data,
+      //   redirect: false,
+      // })
 
-      router.push(`/`);
-      toast.success(toastMessage);
+      // router.push(`/`);
+      // toast.success(toastMessage);
     
     } catch (error: any) {
       
@@ -171,7 +171,7 @@ export function UserAuthRegisterForm({ className, ...props }: UserAuthFormProps)
   });
 
   const handleGoogleLogin = async () => {
-    signIn('google')
+    // signIn('google')
   }
 
   async function onSubmit(data: RegisterFormValues) {

@@ -20,12 +20,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const session = await getServerSession(options);
   return (
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          {/* <NextAuthProvider session={session}> */}
             <ThemeProvider 
               attribute="class" 
               defaultTheme="system" 
@@ -37,7 +35,6 @@ export default async function RootLayout({
                 {children}
               </ScrollArea>
             </ThemeProvider>
-          {/* </NextAuthProvider> */}
         </body>
       </html>
     </ClerkProvider>

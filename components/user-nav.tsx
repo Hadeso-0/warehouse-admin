@@ -12,7 +12,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { signOut } from "next-auth/react"
+// import { signOut } from "next-auth/react"
 
 export function UserNav() {
   return (
@@ -36,7 +36,7 @@ export function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" onClick={() => signOut()}/>
+          {/* <LogOut className="mr-2 h-4 w-4" onClick={() => signOut()}/> */}
           <span>Log out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
