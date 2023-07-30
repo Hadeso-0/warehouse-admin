@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Brief Project Structure
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+/
+|-- client/		
+    |-- public/
+        |-- index.html            #First webpage of the project
+    |-- src/
+        |-- components/           #Contains all the required components of project
+            |-- Navbar/               #Contains UI for navbar
+            |-- common/               #Contains UI for common coomon features of admin and student
+            |-- admin/                #Contains UI for features of admin
+            |-- student/              #Contains UI for features of student
+        |-- images/               #Contains images used in the project
+        |-- context/              #Contains context file
+        |-- pages/                #Contains all the different pages
+            |-- Authentication/       #Contains pages related to authentication
+            |-- home/                 #Contains home page
+        |-- services/             #Contains all the api functions used in the project
+|    
+|-- server/
+    |-- controller/          #Contains all the controllers of project
+        |-- adminconroller.js     #Contains all the functions related to admin
+        |-- companycontroller.js  #Contains all the functions related to companies
+        |-- jobcontroller.js      #Contains all the functions related to companies
+        |-- studentconroller.js   #Contains all the functions related to students
+    |-- database/            #To establish connection between database and backend
+    |-- route/               #Contains all routes used in project
+    |-- server.js            #Main file of server folder
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## APIs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Routes | parameters | body | Description |
+| -------- | -------- | -------- | -------- |
+| `POSt` /loginadmin | | password | Take password as input and login admin if credentials are correct |
+| `POST` /adminupdate | | password | Updates password of admin|
+| `POST` /addstudent | | name , email , password , enrolment no. , cgpa , semester , course , mobile , gender , resume | Take the details as input and create student profile |
+| `GET` /getallstudent | | | Returns the array of all students |
+| `POST` /updatestudent | | name , email , password , cgpa , semester , course , mobile , gender , resume | Take the details as input and update student |
+| `POST` /getstudent | | studentId | Get student by given id |
+| `POST` /deletestudent | | studentId | Delete the student with given id |
+| `POST` /addcompany | | name , type , description | Allows admin to add company |
+| `GET` /getallcompany | | | Returns array of all companies |
+| `GET` /getcompany | companyId | | Get the required company having this id |
+| `POST` /updatecompany | | companyId | Allows admin to update the particular company having this id |
+| `POST` /deletecompany | | companyId | Allows admin to delete the particular company having this id |
+| `POST` /addjob | | name , description , salary , company_name | Take the details and allows admin to add a new company |
+| `GET` /getalljob | | | Returns array of all jobs |
+| `GET` /getjob | JobId | | Returns the job having this id |
+| `POST` /deletejob | | jobId | Allows admin to delete job having this id |
+| `POST` /updatejob | | jobId | Allows admin to update job having this id|
+| `POST` /applyjob | | enrolment number , student name , jobId , jobName , companyName | Allows a particular student to apply for a particular job |
+| `GET` /viewapplyjob | studentId | | Allows student to view the jobs he/she has applied |
+|`GET` /getallapplyjob | | | Allows admin to view which job has been applied by which student |  
